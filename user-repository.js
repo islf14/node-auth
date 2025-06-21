@@ -12,7 +12,7 @@ const User = Schema('User', {
 })
 
 export class UserRepository {
-  static async create ({ username, password }) {
+  static async create({ username, password }) {
     Validation.username(username)
     Validation.password(password)
 
@@ -31,7 +31,7 @@ export class UserRepository {
     return id
   }
 
-  static async login ({ username, password }) {
+  static async login({ username, password }) {
     Validation.username(username)
     Validation.password(password)
 
@@ -47,13 +47,17 @@ export class UserRepository {
 }
 
 class Validation {
-  static username (username) {
-    if (typeof username !== 'string') throw new Error('username must be a string')
-    if (username.length < 3) throw new Error('username must be al least 3 characters long')
+  static username(username) {
+    if (typeof username !== 'string')
+      throw new Error('username must be a string')
+    if (username.length < 3)
+      throw new Error('username must be al least 3 characters long')
   }
 
-  static password (password) {
-    if (typeof password !== 'string') throw new Error('password must be a string')
-    if (password.length < 6) throw new Error('password must be al least 6 characters long')
+  static password(password) {
+    if (typeof password !== 'string')
+      throw new Error('password must be a string')
+    if (password.length < 6)
+      throw new Error('password must be al least 6 characters long')
   }
 }

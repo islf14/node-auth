@@ -75,9 +75,7 @@ app.get('/protected', (req, res) => {
 })
 
 app.post('/logout', (req, res) => {
-  res
-    .clearCookie('access_token')
-    .json({ message: 'Logout successful' })
+  res.clearCookie('access_token').json({ message: 'Logout successful' })
 })
 
 app.listen(PORT, () => {
